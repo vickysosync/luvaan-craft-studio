@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CollectionRouteImport } from './routes/collection'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ManufacturingRouteImport } from './routes/manufacturing'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ShoeCleaningRouteImport } from './routes/shoe-cleaning'
@@ -44,6 +45,11 @@ const CollectionRoute = CollectionRouteImport.update({
   path: '/collection',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ManufacturingRoute = ManufacturingRouteImport.update({
   id: '/manufacturing',
   path: '/manufacturing',
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/collection': typeof CollectionRoute
+  '/contact': typeof ContactRoute
   '/manufacturing': typeof ManufacturingRoute
   '/portfolio': typeof PortfolioRoute
   '/shoe-cleaning': typeof ShoeCleaningRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/collection': typeof CollectionRoute
+  '/contact': typeof ContactRoute
   '/manufacturing': typeof ManufacturingRoute
   '/portfolio': typeof PortfolioRoute
   '/shoe-cleaning': typeof ShoeCleaningRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/checkout': typeof CheckoutRoute
   '/collection': typeof CollectionRoute
+  '/contact': typeof ContactRoute
   '/manufacturing': typeof ManufacturingRoute
   '/portfolio': typeof PortfolioRoute
   '/shoe-cleaning': typeof ShoeCleaningRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/collection'
+    | '/contact'
     | '/manufacturing'
     | '/portfolio'
     | '/shoe-cleaning'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/collection'
+    | '/contact'
     | '/manufacturing'
     | '/portfolio'
     | '/shoe-cleaning'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/checkout'
     | '/collection'
+    | '/contact'
     | '/manufacturing'
     | '/portfolio'
     | '/shoe-cleaning'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   CheckoutRoute: typeof CheckoutRoute
   CollectionRoute: typeof CollectionRoute
+  ContactRoute: typeof ContactRoute
   ManufacturingRoute: typeof ManufacturingRoute
   PortfolioRoute: typeof PortfolioRoute
   ShoeCleaningRoute: typeof ShoeCleaningRoute
@@ -184,6 +197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CollectionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/manufacturing': {
       id: '/manufacturing'
       path: '/manufacturing'
@@ -221,6 +241,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   CheckoutRoute: CheckoutRoute,
   CollectionRoute: CollectionRoute,
+  ContactRoute: ContactRoute,
   ManufacturingRoute: ManufacturingRoute,
   PortfolioRoute: PortfolioRoute,
   ShoeCleaningRoute: ShoeCleaningRoute,
