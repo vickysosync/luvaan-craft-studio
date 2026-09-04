@@ -20,7 +20,7 @@ export const Route = createFileRoute("/shoe-cleaning")({
       },
     ],
   }),
-  component: ShoeCleaning;
+  component: ShoeCleaning,
 });
 
 const shoeTypes = [
