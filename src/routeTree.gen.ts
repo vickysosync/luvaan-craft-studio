@@ -18,6 +18,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ManufacturingRouteImport } from './routes/manufacturing'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ShoeCleaningRouteImport } from './routes/shoe-cleaning'
+import { Route as AdminDashboardRouteImport } from './routes/admin.dashboard'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as ProductIdRouteImport } from './routes/product.$id'
 
@@ -66,6 +67,11 @@ const ShoeCleaningRoute = ShoeCleaningRouteImport.update({
   path: '/shoe-cleaning',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminDashboardRoute = AdminDashboardRouteImport.update({
+  id: '/admin/dashboard',
+  path: '/admin/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin/login',
   path: '/admin/login',
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/manufacturing': typeof ManufacturingRoute
   '/portfolio': typeof PortfolioRoute
   '/shoe-cleaning': typeof ShoeCleaningRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/login': typeof AdminLoginRoute
   '/product/$id': typeof ProductIdRoute
 }
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/manufacturing': typeof ManufacturingRoute
   '/portfolio': typeof PortfolioRoute
   '/shoe-cleaning': typeof ShoeCleaningRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/login': typeof AdminLoginRoute
   '/product/$id': typeof ProductIdRoute
 }
@@ -114,6 +122,7 @@ export interface FileRoutesById {
   '/manufacturing': typeof ManufacturingRoute
   '/portfolio': typeof PortfolioRoute
   '/shoe-cleaning': typeof ShoeCleaningRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
   '/admin/login': typeof AdminLoginRoute
   '/product/$id': typeof ProductIdRoute
 }
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
     | '/manufacturing'
     | '/portfolio'
     | '/shoe-cleaning'
+    | '/admin/dashboard'
     | '/admin/login'
     | '/product/$id'
   fileRoutesByTo: FileRoutesByTo
@@ -142,6 +152,7 @@ export interface FileRouteTypes {
     | '/manufacturing'
     | '/portfolio'
     | '/shoe-cleaning'
+    | '/admin/dashboard'
     | '/admin/login'
     | '/product/$id'
   id:
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/manufacturing'
     | '/portfolio'
     | '/shoe-cleaning'
+    | '/admin/dashboard'
     | '/admin/login'
     | '/product/$id'
   fileRoutesById: FileRoutesById
@@ -169,6 +181,7 @@ export interface RootRouteChildren {
   ManufacturingRoute: typeof ManufacturingRoute
   PortfolioRoute: typeof PortfolioRoute
   ShoeCleaningRoute: typeof ShoeCleaningRoute
+  AdminDashboardRoute: typeof AdminDashboardRoute
   AdminLoginRoute: typeof AdminLoginRoute
   ProductIdRoute: typeof ProductIdRoute
 }
@@ -238,6 +251,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShoeCleaningRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/dashboard': {
+      id: '/admin/dashboard'
+      path: '/admin/dashboard'
+      fullPath: '/admin/dashboard'
+      preLoaderRoute: typeof AdminDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/admin/login'
@@ -265,6 +285,7 @@ const rootRouteChildren: RootRouteChildren = {
   ManufacturingRoute: ManufacturingRoute,
   PortfolioRoute: PortfolioRoute,
   ShoeCleaningRoute: ShoeCleaningRoute,
+  AdminDashboardRoute: AdminDashboardRoute,
   AdminLoginRoute: AdminLoginRoute,
   ProductIdRoute: ProductIdRoute,
 }
